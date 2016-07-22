@@ -196,12 +196,14 @@ rollout rSpeedTreeImport "Trees List"
 		if(szFile == "") do szFile = defaultFile[i]
 		
 		types = "*" + engineExt[i] + "|" + "*" + engineExt[i] 
-		szFile = getOpenFileName caption:"Browse"	filename: szFile types: types
+		f  = getOpenFileName caption:"Browse"	filename: szFile types: types
 		
-		if(szFile != undefined and szFile != "") then
+		if(f != undefined and f != "") then
 		(															
-			useSettings "FILE" szFile 1
-			edtBrowse.text = szFile						
+			useSettings "FILE" f 1
+			edtBrowse.text = f	
+
+			szFile = f
 		)			
 	)
 	
